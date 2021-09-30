@@ -1,10 +1,10 @@
-from typing import Any, Dict, List
+from datetime import date
 
 ALL_RECORDS = 0
 
 
 class HouseInfo:
-    def __init__(self, data: List[Dict[str, Any]]):
+    def __init__(self, data):
         self.data = data
 
     def get_data_by_area(self, field: str, rec_area=0):
@@ -15,3 +15,7 @@ class HouseInfo:
             elif rec_area == int(record['area']):
                 field_data.append(record[field])
         return field_data
+
+    def get_data_by_date(self, field, rec_date=date.today()):
+        field_data = []
+
